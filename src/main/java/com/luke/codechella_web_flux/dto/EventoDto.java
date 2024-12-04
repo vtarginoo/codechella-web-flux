@@ -14,6 +14,17 @@ public record EventoDto(
 ) {
     public static EventoDto toDto(Evento evento) {
         return new EventoDto(evento.getId(), evento.getTipo(), evento.getNome(),
-                evento.getData(), evento.getDescricao());
+                evento.getData(), evento.getDescricao());}
+
+    public  Evento toEntity()  {
+
+        Evento evento = new Evento();
+        evento.setId(this.id);
+        evento.setTipo(this.tipo);
+        evento.setNome(this.nome);
+        evento.setData(this.data);
+        evento.setDescricao(this.descricao);
+
+        return evento;
     }
 }
